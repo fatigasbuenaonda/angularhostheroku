@@ -1,0 +1,372 @@
+<!--<app-header1></app-header1>  ESTO TE ACOMPAÑA SIEMPRE ARRIBA, AL BAJAR LA PAGINA-->
+
+
+
+<app-header2></app-header2>
+
+<img class="img-fondo" src="assets/img/snfinal.jpg" alt="Image">
+
+<br>
+<br>
+
+
+<!--====== Breadcrumb part Start ======-->
+<!--
+<div class="breadcrumb-section bg-img-c" style="background-image: url(assets/img/breadcrumb.jpg);">
+    <div class="container">
+        <div class="breadcrumb-text">
+            <h1 class="page-title">Blog Grid</h1>
+            <ul>
+                <li><a routerLink='/'>Home</a></li>
+                <li>Blog</li>
+            </ul>
+        </div>
+    </div>
+    <div class="breadcrumb-shapes">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+</div> -->
+<!--====== Breadcrumb part End ======-->
+
+
+<!--====== Blog Section Start ======-->
+<section class="blog-section section-gap-top">
+    <div class="mr-3 ml-3">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-2 col-md-8">
+                <!-- start Faq loop  -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="accordion faq-loop grey-header" id="faqAccordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Farmacias de turno
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Medicos plin plin
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Comercios
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Industrias y empresas
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Farmacias de turno
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Medicos plin plin
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Comercios
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Industrias y empresas
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Farmacias de turno
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Medicos plin plin
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Comercios
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6>
+                                Industrias y empresas
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Faq LOOP -->
+
+
+                <!-- <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Comercios</li>
+                    <li class="list-group-item">Industrias y empresas</li>
+                    <li class="list-group-item">Farmacias de turno</li>
+                </ul> -->
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <h3 class="centrado">Guía Comercial</h3>
+                <br>
+
+                <!-- Search Widget -->
+
+                <!-- <div class="widget search-widget">
+                    <form action="#">
+                        <input class="form-control" type="text" placeholder="Busque aquí ...">
+                        <i class="far fa-search"></i>
+                    </form>
+                </div> -->
+
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="¿Qué está buscando? ..." aria-label="Search">
+                    <div class="input-group-append">
+                        <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+                          aria-hidden="true"></i></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <h3>Noticias</h3>
+
+                <br>
+
+                <!-- Blog loop(Grid) -->
+                <div class="blog-loop grid-blog row justify-content-center">
+
+                    <!-- ngFor loop Post NEWS -->
+                    <div class="col-lg-4 col-md-4 col-6 col-tiny-12" *ngFor="let new of news">
+                        <div class="single-post-box">
+                            <div class="post-thumb">
+                                <!-- <img src="C:/Proyectos/SN para todos/Backend/images/news/gatito.jpg" alt="Image"> -->
+                                <!-- <img src="assets/img/blog/gatito.jpg" alt="Image"> -->
+                                <img class=img-news src="{{linkFotoNews + new.picture }}" alt="Image">
+
+                            </div>
+                            <div class="post-content">
+
+                                <h3 class="title">
+                                    <a routerLink='/blog-detail' [queryParams]="{id: new.id, type: tipoNews}">
+                                        {{ new.title }}
+                                        <!-- {{linkFotoNews + new.picture }} -->
+                                    </a>
+                                </h3>
+                                <p class="text">
+                                    {{ new.text }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post
+                    <div class="col-lg-4 col-md-4 col-6 col-tiny-12">
+                        <div class="single-post-box">
+                            <div class="post-thumb">
+                                <img src="assets/img/blog/06.jpg" alt="Image">
+                            </div>
+                            <div class="post-content">
+                                <span class="post-date"><i class="far fa-calendar-alt"></i>20 Oct 2020</span>
+                                <h3 class="title">
+                                    <a routerLink='/blog-detail'>
+                                            Mirage JS Deep Dive Unders Tanding Mirage JS Models
+                                        </a>
+                                </h3>
+                                <p>
+                                    Sedut perspiciatis unde oudantim totam raperiaeaqupsa quae
+                                </p>
+                                <a routerLink='/blog-detail' class="post-link">
+                                        Learn More <i class="far fa-long-arrow-right"></i>
+                                    </a>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <h3>Entrevistas</h3>
+
+                <br>
+
+                <!-- Blog loop(Grid) -->
+                <div class="blog-loop grid-blog row justify-content-center">
+
+                    <!-- ngFor loop Post INTERVIEWS -->
+                    <div class="col-lg-4 col-md-4 col-6 col-tiny-12" *ngFor="let interview of interviews">
+                        <div class="single-post-box">
+                            <div class="post-thumb">
+                                <!-- <youtube-player videoId="{{interview.text}}" suggestedQuality='hd720' [height]="160" [width]="270" [startSeconds]="2" [endSeconds]="100" [showBeforeIframeApiLoads]="true">
+                                </youtube-player> -->
+                                <p>
+                                    <iframe width="270" height="160" [src]="getVideoIframe(interview.text)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </p>
+                                <!-- <p>
+                                    <iframe width="270" height="160" [src]="getVideoIframe('https://www.youtube.com/watch?v=I3CT8syLNRA&ab_channel=VictorRoblesWEB')" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </p> -->
+                                <!-- <img class=img-news src="{{linkFotoInterviews + interview.picture }}" alt="Image"> -->
+                            </div>
+                            <div class="post-content">
+                                <h3 class="title">
+                                    <a routerLink='/blog-detail' [queryParams]="{id: interview.id, type: tipoInterviews}">
+                                        {{ interview.title }}
+                                    </a>
+                                </h3>
+                                <!-- <p class="text">
+                                    {{ interview.text }}
+                                </p> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <!-- <div class="pagination-wrap">
+                    <ul>
+                        <li><a routerLink='/blog-grid'><i class="far fa-angle-left"></i></a></li>
+                        <li class="active"><a routerLink='/blog-grid'>01</a></li>
+                        <li><a routerLink='/blog-grid'>02</a></li>
+                        <li><a routerLink='/blog-grid'>03</a></li>
+                        <li><a routerLink='/blog-grid'><i class="far fa-angle-right"></i></a></li>
+                    </ul>
+                </div> -->
+            </div>
+
+            <div class="col-lg-2 col-md-8">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- sidebar -->
+                <!-- <app-service-sidebar></app-service-sidebar> -->
+                PONER PUBLIS!!
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== Blog Section End ======-->
+<hr>
+
+
+<!--====== Client Area Start ======-->
+<!--
+
+    Client area papurri
+<section class="client-section">
+    <div class="container">
+        <div class="client-slider section-gap">
+            <div class="row align-items-center justify-content-between" id="clientSlider">
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/01.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/02.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/03.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/04.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/05.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/01.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/02.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/03.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/04.png" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a routerLink='/blog-grid' class="client-img d-block text-center">
+                        <img src="assets/img/clients/05.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+<!--====== Client Area End ======-->
+<!-- <app-footer1></app-footer1>  -->
+
+<!-- <a class="weatherwidget-io" href="https://forecast7.com/es/n33d33n60d21/san-nicolas-de-los-arroyos/" data-label_1="SAN NICOLÁS DE LOS ARROYOS" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="pure">SAN NICOLÁS DE LOS ARROYOS WEATHER</a>
+<script>
+    ! function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'weatherwidget-io-js');
+</script> -->
+
+<!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-a2b94551-44a3-4750-8639-e6b5a73052dd"></div> -->

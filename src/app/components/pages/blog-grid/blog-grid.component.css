@@ -1,0 +1,35 @@
+.centrado {
+    text-align: center
+}
+
+.imagen-fondo {
+    position: static;
+    display: inline-block;
+}
+
+.img-fondo {
+    /* margin: 0px; */
+    padding-top: 160px;
+    display: block;
+    margin: auto;
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.img-news {
+    width: 270px;
+    height: 160px;
+}
+
+.padimgbig {
+    margin: 0px;
+    padding-top: 160px;
+    /* text-align: center; */
+}

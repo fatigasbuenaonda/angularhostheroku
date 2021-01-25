@@ -1,0 +1,212 @@
+<div class="jumbotron">
+    <h1>SN para todos</h1>
+    <hr>
+
+    <br>
+    <form [formGroup]="f" autocomplete="off">
+
+
+        <!--CAMPO TITLE-->
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="title">TÍTULO</label>
+                    <input type="text" id="title" class="form-control" formControlName="title">
+
+                    <!--CARTELES DE VALIDACIÓN-->
+                    <div *ngIf="f.controls.title.errors && f.controls.title.dirty" class="alert alert-danger mt-1">
+                        Campo no válido
+                    </div>
+                </div>
+            </div>
+
+            <!--CAMPO PICTURE-->
+            <div class="col">
+                <div class="form-group">
+                    <label for="picture">FOTO</label>
+                    <input type="file" name="picture" id="picture" class="form-control-file" formControlName="picture" (change)="onFileSelected($event)">
+
+                    <!-- ARRANCA EL CROP -->
+
+                    <!-- <input type="file" (change)="fileChangeEvent($event)" />
+
+                    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3" format="jpg" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded(croppedImage)" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+                    <img [src]="croppedImage" /> -->
+
+
+                    <!-- FINALIZA EL CROP -->
+
+                </div>
+            </div>
+        </div>
+
+        <!--CAMPO TEXT-->
+
+        <div class="form-group altoTEXTO">
+            <label for="text">TEXTO / LINK VIDEO</label>
+            <input type="text" id="text" class="form-control" formControlName="text">
+
+            <!--CARTELES DE VALIDACIÓN-->
+            <div *ngIf="f.controls.text.errors && f.controls.text.dirty" class="alert alert-danger mt-1">
+                Campo no válido
+            </div>
+
+        </div>
+
+        <!-- <button class="btn btn-success my-3" [disabled]="f.invalid" (click)="enviarNews()">Postear News</button> -->
+        <!-- <button class="btn btn-warning my-3" [disabled]="f.invalid" (click)="enviarInterviews()">Postear Interviews</button> -->
+        <!-- <button class="btn btn-danger my-3" (click)="borrarNews()">Borrar News</button> -->
+        <!-- <button class="btn btn-danger my-3" (click)="borrarInterviews()">Borrar Interviews</button> -->
+        <!-- <button class="btn btn-success my-3" (click)="onLogout()">Logout</button> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-success my-3" [disabled]="f.invalid" (click)="enviarNews()">Postear News</button>
+                    <br>
+                    <!-- <button class="btn btn-danger my-3" (click)="borrarNews()">Borrar News</button> -->
+                </div>
+                <div class="col">
+                    <button class="btn btn-warning my-3" [disabled]="f.invalid" (click)="enviarInterviews()">Postear Interviews</button>
+                    <br>
+                    <!-- <button class="btn btn-danger my-3" (click)="borrarInterviews()">Borrar Interviews</button> -->
+                </div>
+                <div class="col">
+                    <button class="btn btn-outline-danger my-3" (click)="onLogout()">Logout</button>
+                    <br>
+                    <!--CAMPO ID-->
+                    <div class="form-group anchoID">
+                        <!-- <label for="id">ID</label> -->
+                        <!-- <input type="number" id="id" class="form-control" formControlName="id"> -->
+
+                        <!--CARTELES DE VALIDACIÓN-->
+                        <!--                         <div *ngIf="f.controls.id.errors && f.controls.id.dirty" class="alert alert-danger mt-1">
+                            Campo no válido
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <hr>
+    <!--    <h5>Datos del Reactive Form</h5>
+    <pre><p>{{ f.value | json }}</p></pre>
+
+
+    <hr>
+    <hr>
+    <h2>NEWS</h2>
+    <table>
+        <tr *ngFor="let item of news">
+            <td>
+                {{item.id}} {{item.picture}} {{item.title}} {{item.text}}
+            </td>
+        </tr>
+    </table>
+
+    <h2>INTERVIEWS</h2>
+    <table>
+        <tr *ngFor="let item of interviews">
+            <td>
+                {{item.id}} {{item.picture}} {{item.title}} {{item.text}}
+            </td>
+        </tr>
+    </table>
+
+    <h2>USERS</h2>
+    <table>
+        <tr *ngFor="let item of users">
+            <td>
+                {{item.id}} {{item.username}} {{item.password}}
+            </td>
+        </tr>
+    </table>
+ -->
+    <br><br><br>
+
+    <!-- Acá quiero mostrar lo que se va a mostrar en la WEB, (la info que está subida en la base de datos) -->
+
+    <!--     <div class="media alert alert-info" *ngFor="let n of news; index as i">
+        
+        <div class="media-body ml-3"></div>
+        <h5><u>Título: {{i+1}} - ID: {{n.id}} - {{n.title}}</u></h5>
+        <br>
+        <p>Texto: <b>{{n.text}}</b></p>
+        <p>Texto: <i>{{n.text}}</i></p>
+    </div> -->
+
+    <!-- Aca arranca el detail  -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+
+
+                <!-- Blog Details -->
+
+                <u><h2>NEWS</h2></u>
+                <br>
+
+                <div class="post-details-wrap media alert alert-info" *ngFor="let new of news">
+                    <div class="single-post-box">
+                        <div class="post-thumb">
+                            <img src="{{linkFotoNews + new.picture }}" alt="Image">
+                        </div>
+                        <!-- <a class="btn btn-danger">
+                            <i class="fa fa-trash-o fa-lg" (click)="borrarNewsIcono(new.id)"></i> Borrar</a> -->
+                        <i class="fa fa-trash-o fa-lg" (click)="borrarNewsIcono(new.id)"></i>
+
+                        <div class="post-content">
+                            <h3 class="title">
+                                {{ new.title }}
+                            </h3>
+                            <p>
+                                {{ new.text }}
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <hr>
+                <br>
+
+                <u><h2>INTERVIEWS</h2></u>
+                <br>
+
+                <div class="post-details-wrap media alert alert-success" *ngFor="let interview of interviews">
+                    <div class="single-post-box">
+                        <div class="post-thumb">
+                            <!-- <youtube-player videoId="{{ interview.text }}" suggestedQuality="highres" [height]="470" [width]="770" [startSeconds]="0">
+                            </youtube-player> -->
+                            <p>
+                                <iframe width="770" height="470" [src]="getVideoIframe(interview.text)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </p>
+                        </div>
+                        <!-- <div class="post-thumb"> -->
+                        <!-- <img src="{{linkFotoInterviews + interview.picture }}" alt="Image"> -->
+                        <!-- </div> -->
+                        <i class="fa fa-trash-o fa-lg" (click)="borrarInterviewsIcono(interview.id)"></i>
+                        <div class="post-content">
+                            <h3 class="title">
+                                {{ interview.title }}
+                            </h3>
+                            <p>
+                                {{ interview.text }}
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--  ###########################################################################################    -->
