@@ -9,14 +9,16 @@ import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable()
 export class AuthService {
 
-  AUTH_SERVER = 'http://localhost:3000';
+  // AUTH_SERVER = 'http://localhost:3000';
+  AUTH_SERVER = 'https://snparatodoss.herokuapp.com/';
   authSubject = new BehaviorSubject(false);
   private token: string;
 
   constructor(private httpClient: HttpClient) { }
 
   login(user: UserI): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:3000/login',
+    // return this.httpClient.post<any>('http://localhost:3000/login',
+    return this.httpClient.post<any>('https://snparatodoss.herokuapp.com/login',
     user).pipe(tap(
       (res) => {
         if (res) {

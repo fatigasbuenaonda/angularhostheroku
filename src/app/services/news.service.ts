@@ -10,7 +10,8 @@ import { AuthService } from './auth.service';
 export class NewsService {
 
   id: number;
-  url = 'http://localhost:3000/';
+  url = 'https://snparatodoss.herokuapp.com/';
+  // url = 'http://localhost:3000/';
   head: any;
 
 
@@ -97,7 +98,7 @@ export class NewsService {
 //// imagen
 
   postIm(im, tipo: number): Promise<any> {
-    return this.http.post('http://localhost:3000/upload/' + tipo, im, this.getHttpOptImage()).toPromise();
+    return this.http.post('https://snparatodoss.herokuapp.com/upload/' + tipo, im, this.getHttpOptImage()).toPromise();
   }
 
 
